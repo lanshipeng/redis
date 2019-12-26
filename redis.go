@@ -50,6 +50,7 @@ func (e EvalReturn) Interface() interface{} {
 
 type Options struct {
 	Address      string
+	PassWord     string
 	PoolSize     int
 	MinIdleConns int
 
@@ -68,7 +69,7 @@ type Client struct {
 	pool pool.Pooler
 }
 
-func New(opts Options) Client {
+func New(ctx context.Context, opts Options) (Client, error) {
 	poolOpts := pool.Options{
 		PoolSize:           opts.PoolSize,
 		MinIdleConns:       opts.MinIdleConns,
@@ -94,7 +95,27 @@ func New(opts Options) Client {
 		return &rw, nil
 	}
 
-	return Client{pool: pool.New(poolOpts), opts: opts}
+	client := Client{pool: pool.New(poolOpts), opts: opts}
+
+	args := []interface{}{"AUTH", opts.PassWord}
+	err := client.do(ctx, args, func(conn *redisConn) error {
+		if err := conn.w.WriteArgs(args); err != nil {
+			return err
+		}
+
+		if err := conn.w.Flush(); err != nil {
+			return err
+		}
+
+		_, err := conn.r.ReadStatusReply()
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
+
+	return client, err
 }
 
 type redisConn struct {
