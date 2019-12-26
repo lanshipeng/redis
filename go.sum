@@ -1,7 +1,5 @@
 github.com/bilibili/net/pool v0.0.0-20190606013157-0098a1321213 h1:IW51vdO9l58fVxolgghPkZYfW98Q4MVpA95NVySehGQ=
 github.com/bilibili/net/pool v0.0.0-20190606013157-0098a1321213/go.mod h1:ScM38EWEyK6cHAeZ7dkB96+kdsFk+U2ayC8XEd8UTEE=
-github.com/bilibili/redis v0.0.0-20191111025012-4215a42ec2a9 h1:r38P1pBWQX4vcdJ2DCvQRnJXEl4093pARy69kS6Otg4=
-github.com/bilibili/redis v0.0.0-20191111025012-4215a42ec2a9/go.mod h1:avNB9vvgIh1JBJ9rb3mHiGqD+wQQQr3K5Qxu1iM7RQ8=
 github.com/fsnotify/fsnotify v1.4.7 h1:IXs+QLmnXW2CcXuY+8Mzv/fWEsPGWxqefPtCP5CnV9I=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/golang/protobuf v1.2.0 h1:P3YflyNX/ehuJFLhxviNdFxQPkGK5cDcApsge1SqnvM=

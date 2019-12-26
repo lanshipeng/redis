@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/bilibili/net/pool"
-	"github.com/bilibili/redis/protocol"
+	"github.com/lanshipeng/redis/protocol"
 )
 
 const (
